@@ -32,9 +32,15 @@ public class ProductController {
 
     //GET {ID}
     @GetMapping ({"id"})
-    public List<Product> get(@PathVariable Integer id){
+    public Product get(@PathVariable Integer id){
 
-        return product;
+        for (Product product : product) {
+            if (product.getId().equals(id)) {
+                return product;
+            }
+        }
+
+        return null;
 
     }
 
